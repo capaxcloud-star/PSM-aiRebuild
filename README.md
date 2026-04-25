@@ -119,6 +119,12 @@ A 当前建议：XXX
 - 简洁
 - 聚焦决策点
 - 不写长背景说明
+- 提交ISSUE时必须带label，lable仅可选question，bug，documentation 三选一
+- 提交的ISSUE必须选Projects，当前选PSM Rebuild
+- 提交的ISSUE必须带有Projects status，选AI
+
+## ✅ ISSUE的提交时的标签
+
 
 ---
 
