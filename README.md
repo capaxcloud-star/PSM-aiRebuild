@@ -144,11 +144,16 @@ F 只需：
 
 然后：
 
-✅ 添加标签 `todo`
+✅ Project status `todo`
 
 表示：
 
 > 已决策，可开发
+
+✅ 新增Project status `待澄清`
+表示：
+
+> 需要F进一步澄清
 
 ---
 
@@ -159,7 +164,15 @@ A 提 Issue（AI）
         ↓
 F 回复 + 添加 todo
         ↓
-A 实现
+IF无歧义->A 实现
+        ↓
+Close Issue
+
+IF有歧义 + 添加Project status `待澄清`
+        ↓
+F 回复 + 添加 todo
+        ↓
+IF无歧义->A 实现
         ↓
 Close Issue
 ```
