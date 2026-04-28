@@ -121,7 +121,8 @@ A 当前建议：XXX
 - 不写长背景说明
 - 提交ISSUE时必须带label，lable仅可选question，bug，documentation 三选一
 - 提交的ISSUE必须选Projects，当前选PSM Rebuild
-- 提交的ISSUE必须带有Projects status，选AI
+- 第一次提交的ISSUE必须带有Projects status，选AI
+- 后续追问的ISSUE必须带有Projects status，选待澄清
 - 提交的ISSUE必须用业务语言来描述，涉及系统程序的，要补充完整业务影响
 
 ## ✅ ISSUE的提交时的标签
