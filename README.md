@@ -1,28 +1,27 @@
-# PSM-aiRebuild
-
-
-下面是一个 ✅ **可以直接复制粘贴到 GitHub README.md 的版本**  
-已去掉解释性语言，保持清晰、极简、可执行。
+✅ **PSM‑aiRebuild 协作宪法 V4‑Lite 最终完整版本（含决策流 + 工程流 + 测试闭环 + 失败路径 + 子 Issue 规则 + 决策变更规则）**  
 
 ---
 
-# 🚗 协作宪法 V4‑Lite  
-## Minimal Viable Collaboration Loop
+# 🚗 PSM‑aiRebuild  
+## 协作宪法 V4‑Lite  
+**Minimal Viable Collaboration Loop（Decision + Build + Verify）**
 
 ---
 
-## 🎯 目标
+# 🎯 目标
 
 当前阶段目标：
 
-- 快速推进开发
-- 最小制度成本
-- 决策清晰可追踪
-- 建立最小可运行协作闭环
+- 快速推进开发  
+- 最小制度成本  
+- 决策清晰可追踪  
+- 建立最小可运行协作闭环  
+- 所有功能必须完成验证后才能关闭  
 
 原则：
 
-> 推进优先于治理
+> 推进优先于治理  
+> 未验证不得关闭  
 
 ---
 
@@ -36,71 +35,59 @@
 
 当前核心协作关系：
 
-```
-A ↔ F
-```
+> A ↔ F
 
 ---
 
 # ⚖ 权力原则
 
-1. 产品行为由 F 决定  
-2. 功能实现由 A 主导  
-3. 数据设计由 B 支撑  
-4. 只有涉及产品行为变化时必须提 Issue  
+- 产品行为由 F 决定  
+- 功能实现由 A 主导  
+- 数据设计由 B 支撑  
+- 只有涉及产品行为变化必须提 Issue  
 
 ---
 
-# 📝 Issue 协作机制（核心）
+# 📝 Issue 协作机制（决策入口）
 
----
-
-## ✅ 什么时候需要提 Issue？
+## ✅ 必须提 Issue 的情况
 
 A 在以下情况必须提 Issue：
 
-- 需求不明确
-- 存在多个实现选项
-- 可能影响产品行为
-- 功能边界不清晰
+- 需求不明确  
+- 存在多个实现选项  
+- 可能影响产品行为  
+- 功能边界不清晰  
 
 否则：
 
-> 直接实现，不提 Issue
+> 直接实现，不提 Issue  
 
 ---
 
-## 🏷 Issue 标题格式
+# 🏷 Issue 标题格式
 
 ```
 [模块] 问题简述
 ```
 
-示例：
-
-```
-[P7] 忘记密码覆盖范围确认
-[WORTH] 撤回终态如何定义
-[RBAC] 角色精简是否接受
-```
-
 规则：
 
-- 不编号
-- 不分级
-- 不复杂命名
-- 保持自然语言
+- 不编号  
+- 不分级  
+- 不复杂命名  
+- 使用自然语言  
 
 ---
 
-## 📄 Issue 内容模板
+# 📄 Issue 内容模板
 
-```markdown
+```md
 ## 分类
 功能 / 数据 / 跨模块 / 调研
 
 ## 问题
-（直接写问题）
+（必须说明业务影响）
 
 ## 选项（如有）
 A.
@@ -116,17 +103,35 @@ A 当前建议：XXX
 
 要求：
 
-- 简洁
-- 聚焦决策点
-- 不写长背景说明
-- 提交ISSUE时必须带label，lable仅可选question，bug，documentation 三选一
-- 提交的ISSUE必须选Projects，当前选PSM Rebuild
-- 第一次提交的ISSUE必须带有Projects status，选AI
-- 后续追问的ISSUE必须带有Projects status，选待澄清
-- 提交的ISSUE必须用业务语言来描述，涉及系统程序的，要补充完整业务影响
+- 简洁  
+- 聚焦决策点  
+- 使用业务语言  
+- 涉及系统逻辑必须补充业务影响  
 
-## ✅ ISSUE的提交时的标签
+---
 
+# ✅ Issue 提交规则（强制）
+
+1. 必须选择 label（仅允许）：
+
+   - question  
+   - bug  
+   - documentation  
+
+2. 必须选择 Project：  
+   `PSM Rebuild`
+
+3. 首次提交必须设置：
+
+```
+Project status = AI
+```
+
+4. 若需补充说明：
+
+```
+Project status = 待澄清
+```
 
 ---
 
@@ -134,56 +139,164 @@ A 当前建议：XXX
 
 F 只需：
 
-- 明确选择
-- 不写长解释
-- 不展开讨论
+- 明确选择  
+- 不写长解释  
+- 不展开讨论  
 
 示例：
 
-```
-选择 A：全员覆盖，admin 禁用自助。
-```
+> 选择 A：全员覆盖，admin 禁用自助。  
 
 然后：
 
-✅ Project status `todo`
+```
+Project status → todo
+```
 
-表示：
+若信息不足：
 
-> 已决策，可开发
-
-✅ 新增Project status `待澄清`
-表示：
-
-> 需要F进一步澄清
+```
+Project status → 待澄清
+```
 
 ---
 
-# 🔄 状态流转
+# 🔄 主 Issue 状态定义（严格语义）
+
+| 状态 | 含义 |
+|------|------|
+| AI | 等待裁决 |
+| 待澄清 | 信息不足 |
+| todo | 产品决策完成，可开发 |
+| in progress | 工程进行中 |
+| done | 功能实现完成且测试通过 |
+
+⚠ 状态必须严格对应真实进度  
+⚠ 不允许提前 done  
+
+---
+
+# 🔄 完整闭环流程
+
+---
+
+## ✅ 无歧义路径
 
 ```
 A 提 Issue（AI）
         ↓
-F 回复 + 添加 todo
+F → todo
         ↓
-IF无歧义->A 实现
+A → in progress
         ↓
-Close Issue
-
-IF有歧义 + 添加Project status `待澄清`
+A 实现代码完成
         ↓
-F 回复 + 添加 todo
+A 建测试（子 Issue）
         ↓
-IF无歧义->A 实现
+A 代码可验证 → Test Status = Test Ready
         ↓
-Close Issue
+A 测试通过 → Test Status = Passed
+        ↓
+A 关闭测试子 Issue
+        ↓
+A Close 主 Issue → done
 ```
 
-仅三种状态：
+---
 
-- `AI`（待裁决）
-- `todo`（待实现）
-- `closed`（已完成）
+## ✅ 有歧义路径
+
+```
+A 提 Issue（AI）
+        ↓
+F → 待澄清
+        ↓
+A 补充说明
+        ↓
+F → todo
+        ↓
+A → in progress
+        ↓
+A 实现代码完成
+        ↓
+A 建测试（子 Issue）
+        ↓
+A 代码可验证 → Test Status = Test Ready
+        ↓
+A 测试通过 → Test Status = Passed
+        ↓
+A 关闭测试子 Issue
+        ↓
+A Close 主 Issue → done
+```
+
+---
+
+# 🧪 测试机制（子 Issue 模型）
+
+每个主 Issue 必须：
+
+- 建立至少一个测试子 Issue  
+- 子 Issue 用于验证决策点  
+- 子 Issue 与主 Issue建立关联  
+- 测试子 Issue 仅用于验证，不用于决策  
+
+---
+
+# ✅ Test Status 字段定义（主 Issue 字段）
+
+| 状态 | 含义 |
+|------|------|
+| Not Ready | 尚不可验证 |
+| Test Ready | 代码已可验证 |
+| Passed | 测试通过 |
+| Failed | 测试失败 |
+
+---
+
+# 🔒 关闭铁律
+
+```
+Test Status ≠ Passed → 不得 done
+```
+
+关闭主 Issue 前必须满足：
+
+- 功能已实现  
+- 测试完成  
+- 测试子 Issue 已关闭  
+- Test Status = Passed  
+
+---
+
+# ❗ 测试失败处理规则
+
+当 `Test Status = Failed`：
+
+- 主 Issue 保持 `in progress`  
+- A 必须修复问题  
+- 修复后重新验证  
+- 重新验证通过后才能设置为 `Passed`  
+
+禁止：
+
+- 直接关闭主 Issue  
+- 删除测试 Issue  
+- 重置状态而不修复问题  
+
+---
+
+# 🔁 决策变更规则
+
+当实现阶段发现决策需要修改：
+
+- 不在原 Issue 内反复拉扯  
+- 新开 Issue 进行新的决策  
+- 原 Issue 保持原决策闭环  
+
+原则：
+
+> 一个 Issue 只对应一次决策闭环  
 
 ---
 
@@ -191,36 +304,39 @@ Close Issue
 
 A：
 
-- 只处理带 `todo` 标签的 Issue
-- 实现后直接关闭 Issue
-- 不反复拉扯讨论
-- 不拖延已决策问题
+- 只处理 `todo` 状态 Issue  
+- 开发开始后改为 `in progress`  
+- 实现完成后建立测试子 Issue  
+- 测试通过并关闭测试子 Issue后关闭主 Issue  
+- 不反复讨论已裁决问题  
+- 不拖延已决策问题  
 
 ---
 
 # 🚫 当前阶段不做
 
-- 不做复杂编号
-- 不做决策矩阵
-- 不做分级标签体系
-- 不做版本治理
-- 不做阻塞级别划分
+- 不做复杂编号  
+- 不做优先级体系  
+- 不做版本治理  
+- 不做测试矩阵  
+- 不做回归分级  
+- 不做复杂自动化门禁  
 
 原因：
 
-> 当前阶段目标是建立节奏，而不是建设制度。
+> 当前阶段目标是建立节奏，而不是建设制度  
 
 ---
 
-# 🔁 最小闭环模型
+# 🔁 最小稳定闭环模型
 
 ```
 Issue = 决策入口
-todo  = 可开发信号
-close = 完成确认
+todo = 可开发信号
+in progress = 工程进行中
+Test Passed = 可关闭条件
+done = 完成确认
 ```
-
-这就是完整协作系统。
 
 ---
 
@@ -228,26 +344,28 @@ close = 完成确认
 
 当出现以下情况之一时，考虑升级到 V5：
 
-- Issue 数量 > 100
-- 决策重复发生
-- 历史难以追踪
-- 跨模块冲突增多
+- Issue 数量 > 100  
+- 测试数量显著增长  
+- 回归冲突频繁  
+- 跨模块依赖复杂  
+- 需要多环境验证  
 
 在此之前：
 
-> 保持轻量，快速推进。
+> 保持轻量，快速推进  
 
 ---
 
-## ✅ 当前模型定义
+# ✅ 当前模型定义
 
 **Human‑Fast Loop Engineering Model**
 
-- 功能主导
-- 决策极简
-- 低制度成本
-- 快速反馈
+- 决策驱动  
+- 工程分层  
+- 测试闭环  
+- 低制度成本  
+- 快速反馈  
 
 ---
 
-（End of V4‑Lite）
+（End of V4‑Lite Final Complete Edition）
