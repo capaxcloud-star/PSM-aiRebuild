@@ -165,14 +165,14 @@ Project status → 待澄清
 
 | 状态 | 含义 |
 |------|------|
-| AI | 等待裁决 |
-| 待澄清 | 信息不足 |
+| AI | 等待 F 进行产品决策或裁决。 |
+| 待澄清 | A 认为信息不足，F 需补充业务影响或选项细节。信息不足 |
 | todo | 产品决策完成，可开发 |
-| in progress | 工程进行中 |
-| done | 功能实现完成且测试通过 |
+| In Progress | 工程进行中 |
+| Done | 功能实现完成且测试通过 |
 
 ⚠ 状态必须严格对应真实进度  
-⚠ 不允许提前 done  
+⚠ 不允许提前 Done  
 
 ---
 
@@ -187,7 +187,7 @@ A 提 Issue（AI）
         ↓
 F → todo
         ↓
-A → in progress
+A → In Progress
         ↓
 A 实现代码完成
         ↓
@@ -199,7 +199,7 @@ A 测试通过 → Test Status = Passed
         ↓
 A 关闭测试子 Issue
         ↓
-A Close 主 Issue → done
+A Close 主 Issue → Done
 ```
 
 ---
@@ -215,7 +215,7 @@ A 补充说明
         ↓
 F → todo
         ↓
-A → in progress
+A → In Progress
         ↓
 A 实现代码完成
         ↓
@@ -227,7 +227,7 @@ A 测试通过 → Test Status = Passed
         ↓
 A 关闭测试子 Issue
         ↓
-A Close 主 Issue → done
+A Close 主 Issue → Done
 ```
 
 ---
@@ -257,7 +257,7 @@ A Close 主 Issue → done
 # 🔒 关闭铁律
 
 ```
-Test Status ≠ Passed → 不得 done
+Test Status ≠ Passed → 不得 Done
 ```
 
 关闭主 Issue 前必须满足：
@@ -273,7 +273,7 @@ Test Status ≠ Passed → 不得 done
 
 当 `Test Status = Failed`：
 
-- 主 Issue 保持 `in progress`  
+- 主 Issue 保持 `In Progress`  
 - A 必须修复问题  
 - 修复后重新验证  
 - 重新验证通过后才能设置为 `Passed`  
@@ -305,7 +305,7 @@ Test Status ≠ Passed → 不得 done
 A：
 
 - 只处理 `todo` 状态 Issue  
-- 开发开始后改为 `in progress`  
+- 开发开始后改为 `In Progress`  
 - 实现完成后建立测试子 Issue  
 - 测试通过并关闭测试子 Issue后关闭主 Issue  
 - 不反复讨论已裁决问题  
@@ -333,9 +333,9 @@ A：
 ```
 Issue = 决策入口
 todo = 可开发信号
-in progress = 工程进行中
+In Progress = 工程进行中
 Test Passed = 可关闭条件
-done = 完成确认
+Done = 完成确认
 ```
 
 ---
