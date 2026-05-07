@@ -240,7 +240,8 @@ A Close 主 Issue → Done
 - 建立至少一个测试子 Issue  
 - 子 Issue 用于验证决策点  
 - 子 Issue 与主 Issue建立关联  
-- 测试子 Issue 仅用于验证，不用于决策  
+- 测试子 Issue 仅用于验证，不用于决策
+- Passed测试通过的ISSUE。必须在对应的issue中新增一个业务人员的操作验证测试用例，确保业务人员可以在页面进行操作验证。  
 
 ---
 
