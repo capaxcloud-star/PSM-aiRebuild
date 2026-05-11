@@ -198,6 +198,8 @@ A 代码可验证 → Test Status = Test Ready
         ↓
 A 测试通过 → Test Status = Passed
         ↓
+F 验收通过 → Test Status = Verify
+        ↓
 A 关闭测试子 Issue
         ↓
 A Close 主 Issue → Done
@@ -226,6 +228,8 @@ A 代码可验证 → Test Status = Test Ready
         ↓
 A 测试通过 → Test Status = Passed
         ↓
+F 验收通过 → Test Status = Verify
+        ↓
 A 关闭测试子 Issue
         ↓
 A Close 主 Issue → Done
@@ -241,7 +245,8 @@ A Close 主 Issue → Done
 - 子 Issue 用于验证决策点  
 - 子 Issue 与主 Issue建立关联  
 - 测试子 Issue 仅用于验证，不用于决策
-- Passed测试通过的ISSUE。必须在对应的issue中新增一个业务人员的操作验证测试用例，确保业务人员可以在页面进行操作验证。  
+- Passed测试通过的ISSUE。必须有测试通过的截图，坚决不允许伪造。测试通过的必须在对应的issue中新增一个业务人员的操作验证测试用例，确保业务人员可以在页面进行操作验证。
+- 仅当Test Status = Verify时，才允许关闭Issue 
 
 ---
 
@@ -252,7 +257,9 @@ A Close 主 Issue → Done
 | Not Ready | 尚不可验证 |
 | Test Ready | 代码已可验证 |
 | Passed | 测试通过 |
+| Verify | 验收通过 |
 | Failed | 测试失败 |
+
 
 ---
 # 📥 统一反馈与变更协议 (Feedback Loop)
@@ -280,7 +287,7 @@ A 的自动化分拣 (工程转换)：
 # 🔒 关闭铁律
 
 ```
-Test Status ≠ Passed → 不得 Done
+Test Status ≠ Verify → 不得 Done
 ```
 
 关闭主 Issue 前必须满足：
@@ -288,7 +295,7 @@ Test Status ≠ Passed → 不得 Done
 - 功能已实现  
 - 测试完成  
 - 测试子 Issue 已关闭  
-- Test Status = Passed  
+- Test Status = Verify  
 
 ---
 
@@ -357,7 +364,7 @@ A：
 Issue = 决策入口
 todo = 可开发信号
 In Progress = 工程进行中
-Test Passed = 可关闭条件
+Test Verify = 可关闭条件
 Done = 完成确认
 ```
 
